@@ -18,9 +18,13 @@ class TestChrome():
     def setup(self):
         # 获取项目路径
         project_path = sys.path[1]
+        print(project_path)
         option=webdriver.ChromeOptions()
         option.debugger_address='127.0.0.1:9222'
-        driver_path=project_path+'/mac_drivers/chromedriver'
+        #mac电脑的浏览器驱动
+        # driver_path=project_path+'/mac_drivers/chromedriver'
+        #公司的浏览器驱动
+        driver_path=project_path+'/win10_drivers/office_chromedriver'
         print(driver_path)
         self.driver=webdriver.Chrome(executable_path=driver_path,options=option)
         self.driver.maximize_window()
@@ -29,15 +33,6 @@ class TestChrome():
     def teardown(self):
         sleep(3)
         self.driver.quit()
-
-
-    def test_chrome_options(self):
-        """
-        复用浏览器登陆企业微信
-        :return:
-        """
-
-
 
     def test_get_cookies(self):
         """
